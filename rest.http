@@ -1,0 +1,65 @@
+###Get all Shops
+GET http://localhost:3000/shops
+Content-Type: application/json
+
+### Create a shop
+POST http://localhost:3000/shops
+Content-Type: application/json
+
+{
+    "owner_name": "123",
+    "contact_details" :{
+        "email": "12345@gmail.com",
+        "phone": "8855740000"
+    },
+    "password": "kalpana",
+    "shop_details":{
+        "shop_image": "https://media.istockphoto.com/id/933154330/photo/variety-of-assortment-of-modern-cosmetics-store.jpg?s=612x612&w=0&k=20&c=p751Qiwjv_zRBzG56jrQgXQ5JUWS5HJ9M8Fk-CLPjBs=",
+        "shop_name": "Super Market",
+        "description": "All types of goods available",
+        "category": "Food & Beverage",
+        "address": "Indira Nagar, Bangalore",
+        "lat": "12.9784",
+        "long": "77.6408"
+    } 
+}
+
+###login user
+POST http://localhost:3000/shops/login
+Content-Type: application/json
+
+{
+    "email": "1234@gmail.com",
+    "password": "kalpana"
+}
+
+### Edit/ Update shop by id
+PATCH http://localhost:3000/shops/64d3a169542f48c6619e2d82
+Content-Type: application/json
+
+{
+    "shop_details": {
+        "shop_image": "https://app.gemoo.com/share/image-annotation/547921925419683840?codeId=Pa6wYp7NzVNn6&origin=imageurlgenerator",
+        "shop_name": "Fashion Point",
+        "description": "all types of traditional, western dresses avaliable",
+        "category": "Women's Appreals",
+        "address": "New Delhi, India",
+        "lat": "19.0760",
+        "long": "72.8777"
+    }
+}
+
+### Delete shop by id
+DELETE http://localhost:3000/shops/64d3a169542f48c6619e2d82
+Content-Type: application/json
+
+###Search shops by category
+GET http://localhost:3000/shops/search?category=Jewellery
+Content-Type: application/json
+
+###Search nearby shops
+GET http://localhost:3000/shops/nearby?lat=28.5740&long=77.1991
+Content-Type: application/json
+
+###invalid page request
+Get http://localhost:3000/123
